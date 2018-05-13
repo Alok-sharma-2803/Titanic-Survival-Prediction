@@ -1,0 +1,47 @@
+
+Titanic$Name
+
+# Decided to form a variable with all titles from Name variable
+
+for(i in 1 : nrow(Titanic)){
+  
+  z <- strsplit(Titanic$Name[i],",")
+  Titanic$Title[i] <- strsplit(z[[1]][2]," ")[[1]][2]
+  
+}
+
+table(Titanic$Title)
+
+# Unknown Title 1 : "Mlle."
+Unkown_Title <- Titanic$Name[Titanic$Title == "Mlle."]
+Titanic$Sex[Titanic$Name == Unkown_Title[1]]
+Titanic$Sex[Titanic$Name == Unkown_Title[2]]
+Titanic$SibSp[Titanic$Name == Unkown_Title[1]]
+Titanic$SibSp[Titanic$Name == Unkown_Title[2]]
+Titanic$Parch[Titanic$Name == Unkown_Title[1]]
+Titanic$Parch[Titanic$Name == Unkown_Title[2]]
+# Since Parch ad sibSp are 0 for both, replacing "Mlle" with "Miss."
+Titanic$Title[Titanic$Title == "Mlle."] <- "Miss."
+
+# Unknown Title 2 : "Mme."
+# "Mme." refers to French word "Madame", equivalent to "Mrs."
+Titanic$Title[Titanic$Title == "Mme."] <- "Mrs."
+
+#Unknown Title 3 : "Ms."
+# "Ms." means "Miss."
+Titanic$Title[Titanic$Title == "Ms."] <- "Miss."
+
+# Unknown Title 4 : "the"
+Unkown_Title <- Titanic$Name[Titanic$Title == "the"]
+# Title "the" is actually "Countess".
+Titanic$Title[Titanic$Title == "the"] <- "Countess."
+
+Popular_Titles <- c("Mr.","Mrs.","Miss.","Master.")
+Titanic$Title[Titanic$Title != Popular_Titles[1] &
+                Titanic$Title != Popular_Titles[2] &
+                Titanic$Title != Popular_Titles[3] &
+                Titanic$Title != Popular_Titles[4]] <-"Rare"
+table(Titanic$Title)
+#Checkig all Titles by Sex
+table(Titanic$Title,Titanic$Sex)
+
