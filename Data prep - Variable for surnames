@@ -6,5 +6,6 @@ for(i in 1 : nrow(Titanic)){
   
 }
 table(Titanic$Surnames)
+
 nlevels(factor(Titanic$Surnames))
 # 875 Surnames
