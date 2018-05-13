@@ -1,0 +1,12 @@
+Titanic$SibSp
+Titanic$Parch
+
+# Making a variable for family size 
+for(i in 1 : nrow(Titanic)){
+  
+  Titanic$Family_size[i] <- Titanic$SibSp[i]+Titanic$Parch[i]+1
+  
+}
+summary(Titanic$Family_size)
+
+Titanic$Name
