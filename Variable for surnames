@@ -1,0 +1,10 @@
+# Making a column for all surnames
+
+for(i in 1 : nrow(Titanic)){
+  
+  Titanic$Surnames[i] <- strsplit(Titanic$Name[i],",")[[1]][1]
+  
+}
+table(Titanic$Surnames)
+nlevels(factor(Titanic$Surnames))
+# 875 Surnames
