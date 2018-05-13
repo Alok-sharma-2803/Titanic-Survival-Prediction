@@ -1,0 +1,8 @@
+Titanic$Cabin
+# Variable Cabin : since Titanic ship was divided into decks, we seperate deck from cabin numbers
+for(i in 1 : nrow(Titanic)){
+  
+  Titanic$Deck[i] <- strsplit(Titanic$Cabin[i],NULL)[[1]][1]
+  
+}
+summary(Titanic$Deck)
