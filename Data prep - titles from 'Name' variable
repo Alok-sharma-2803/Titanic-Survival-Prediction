@@ -20,6 +20,7 @@ Titanic$SibSp[Titanic$Name == Unkown_Title[1]]
 Titanic$SibSp[Titanic$Name == Unkown_Title[2]]
 Titanic$Parch[Titanic$Name == Unkown_Title[1]]
 Titanic$Parch[Titanic$Name == Unkown_Title[2]]
+
 # Since Parch ad sibSp are 0 for both, replacing "Mlle" with "Miss."
 Titanic$Title[Titanic$Title == "Mlle."] <- "Miss."
 
