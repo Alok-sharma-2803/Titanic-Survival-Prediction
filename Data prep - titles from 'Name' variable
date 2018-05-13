@@ -42,7 +42,5 @@ Titanic$Title[Titanic$Title != Popular_Titles[1] &
                 Titanic$Title != Popular_Titles[2] &
                 Titanic$Title != Popular_Titles[3] &
                 Titanic$Title != Popular_Titles[4]] <-"Rare"
-table(Titanic$Title)
-#Checkig all Titles by Sex
-table(Titanic$Title,Titanic$Sex)
 
+table(Titanic$Title)
