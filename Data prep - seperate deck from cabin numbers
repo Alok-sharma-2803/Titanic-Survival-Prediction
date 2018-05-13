@@ -1,4 +1,6 @@
+
 Titanic$Cabin
+
 # Variable Cabin : since Titanic ship was divided into decks, we seperate deck from cabin numbers
 for(i in 1 : nrow(Titanic)){
   
